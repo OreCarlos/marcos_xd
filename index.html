@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Marcos Contreras</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #7c3aed);
+            background-size: 400% 400%;
+            animation: fondo 12s ease infinite;
+            padding: 20px;
+        }
+
+        @keyframes fondo {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 30px;
+            padding: 35px 25px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, .15);
+            border-radius: 50%;
+            top: -60px;
+            right: -60px;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, .08);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .foto {
+            width: 180px;
+            height: 180px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, .3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, .3);
+            animation: flotar 4s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes flotar {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            margin-top: 25px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .nombre {
+            color: #fde047;
+        }
+
+        .mensaje {
+            margin-top: 15px;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #f8fafc;
+        }
+
+        .frase {
+            margin-top: 20px;
+            font-size: .95rem;
+            color: #cbd5e1;
+            font-style: italic;
+        }
+
+        .boton {
+            margin-top: 30px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            background: #fde047;
+            color: #111827;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            transform: scale(1.05);
+        }
+
+        .confeti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: .8;
+            animation: caer linear infinite;
+        }
+
+        @keyframes caer {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        @media(max-width:480px) {
+
+            .card {
+                padding: 25px 18px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .foto {
+                width: 150px;
+                height: 150px;
+            }
+
+            .mensaje {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="confetis"></div>
+
+    <div class="card">
+
+        <div class="foto">
+
+            <img src="xd.jpeg" alt="Marcos Contreras">
+        </div>
+
+        <h1>
+            🎂 Feliz Cumpleaños <br>
+            <span class="nombre">Marcos Contreras</span>
+        </h1>
+
+        <p class="mensaje">
+            ya pero gou sexaxo?
+        </p>
+
+        <p class="frase">
+            "Porque los grandes no nacen todos los días...
+            ¡Feliz cumpleaños al más grande, Marcos Contreras! 🎉"
+        </p>
+
+        <button class="boton" onclick="felicitar()">
+            🎁 Abrir Sorpresa
+        </button>
+
+    </div>
+
+    <script>
+
+        function felicitar() {
+            alert("🎉 ¡Feliz Cumpleaños Marcos Contreras! Que tengas un día extraordinario lleno de alegría y bendiciones. 🎂");
+        }
+
+        const contenedor = document.getElementById('confetis');
+
+        for (let i = 0; i < 50; i++) {
+
+            const confeti = document.createElement('div');
+            confeti.classList.add('confeti');
+
+            confeti.style.left = Math.random() * 100 + '%';
+
+            confeti.style.background =
+                `hsl(${Math.random() * 360},90%,60%)`;
+
+            confeti.style.width =
+                confeti.style.height =
+                (Math.random() * 10 + 5) + 'px';
+
+            confeti.style.animationDuration =
+                (Math.random() * 5 + 4) + 's';
+
+            confeti.style.animationDelay =
+                (Math.random() * 5) + 's';
+
+            contenedor.appendChild(confeti);
+        }
+
+    </script>
+
+</body>
+
+</html>
